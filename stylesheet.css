@@ -26,9 +26,11 @@
 #todaysforecast {
     font-size: .70em;
 }
+
 #todayicon {
     padding-bottom: 15px;
 }
+
 #todayHiLow {
     padding-top: 35px;
 }
@@ -36,9 +38,11 @@
 #day1forecast {
     font-size: .70em;
 }
+
 #day1icon {
     padding-bottom: 15px;
 }
+
 #tomorrowHiLow {
     padding-top: 35px;
 }
@@ -46,9 +50,11 @@
 #day2forecast {
     font-size: .70em;
 }
+
 #day2icon {
     padding-bottom: 15px;
 }
+
 #nextDayHiLow {
     padding-top: 35px;
 }
@@ -76,16 +82,25 @@
     margin: auto;
 }
 
+#refresh-calendar {
+    position: absolute;
+    float: right;
+    text-align: center;
+    margin-top: 2px;
+    width: 95px;
+    height: 38px;
+    background-color: #333300;
+    color: white;
+    border-radius: 20px;
+    border: 3px solid #333300;
+}
+
 .shoppingList {
     padding: 20px 20px 0px 10px;
 }
 
 #board {
     text-align: center;
-}
-
-#refresh-datetime-button {
-    position: absolute;
 }
 
 #myCanvas {
@@ -95,21 +110,21 @@
 
 #draw-button {
     float: right;
-    position: fixed;
+    position: absolute;
     margin-top: 5px;
     width: 65px;
 }
 
 #erase-button {
     float: right;
-    position: fixed;
+    position: absolute;
     margin-top: 55px;
     width: 65px;
 }
 
 #refresh-button {
     float: right;
-    position: fixed;
+    position: absolute;
     margin-top: 105px;
     width: 65px;
 }
@@ -167,6 +182,7 @@ li {
 .form-group {
     text-align: center;
 }
+
 #trashcan {
-    color:#b30000;
+    color: #b30000;
 }

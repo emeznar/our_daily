@@ -168,11 +168,12 @@ function getSchoolLunchMenu() {
 getSchoolLunchMenu();
 
 //get calendar link from git ignore file
-function getCalendar(){
+function getCalendar() {
     var calendarLink = config.MY_EMAILLINK;
-        document.getElementById('calendar-frame').src = calendarLink;
+    document.getElementById('calendar-frame').src = calendarLink;
 }
 getCalendar();
+
 //create the shopping list module in angular
 var myShoppingListApp = angular.module('myShoppingListApp', []);
 //give focus to add item textbox on load
@@ -256,13 +257,17 @@ function getDrawingBoard() {
     }
 }
 
-
-
-//function to clear canvas when clear button clicked
+//function to clear drawing canvas when clear button clicked
 function clearCanvas() {
     // refresh drawing board
     myCanvas.width = myCanvas.width;
     getDrawingBoard();
+}
+
+//function to refresh calendar events
+function refreshCalendar() {
+    // refresh calendar
+    getCalendar();
 }
 
 //update elements on page at defined intervals
@@ -273,18 +278,3 @@ function updatePage() {
     updatelunchMenu = setInterval(getSchoolLunchMenu, 1000 * 60 * 60 * 24);
 }
 updatePage();
-//TODO: add reload button for calendar
-//TODO: Create variables for api keys and dummy google calendar link before uploading to github
-//TODO: Better calendar/plugin?/ or direct link to iframe with google in agenda mode
-//TODO: Create variables for api keys and dummy google calendar link before uploading to github
-//TODO: Double check view on smaller screens, laptop, ipad, etc...
-//DONE: add weather icons in place of text at top of page
-//DONE: Add refresh button to erase entire drawing board
-//DONE: Refresh the lunch menu every day
-//DONE: refresh time every minute and weather every hour
-//DONE: Break out lunch menu from original function so it doesn't refresh every minute
-//DONE: Add erase and draw buttons to change color from blue to white
-//DONE: re-render time so it is updated periodically
-//DONE: Add pdf picker (change link to pdf based on date - i.e. 9 = Oct in link)
-//DONE:Add scroll bar to shopping list - go off page instead of moving everythihng down
-//DONE: Build shopping list with angular
