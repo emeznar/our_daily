@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Our Daily </title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- jQuery javascript library for todo list -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- links to git ignore file for api key and email link -->
+    <script type='text/javascript' src='config.js'></script>
+    <!-- include css file from cdn -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap - Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+    <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+
+</head>
+<div class="container-fluid main content">
+
+    <body class="wholeDoc">
+        <div class="topofPage">
+            <div class="dateTime" "col-xs-12">
+                <p id="displaydateTime"></p>
+            </div>
+            <div class="weather">
+                <p id="displaycurrent" class="weatherLoc"> </p>
+            </div>
+            <!--container for weather information -->
+            <div class="container" id="forecastContainer">
+                <div class="row">
+                    <div class="col-xs-4" id="conditions">
+                        <p>Today</p>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img id="todayicon" src="" />
+                                <p id="todaysforecast"> </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p id="todayHiLow"> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" id="conditions">
+                        <p>Tomorrow</p>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img id="day1icon" src="" />
+                                <p id="day1forecast"> </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p id="tomorrowHiLow"> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" id="conditions">
+                        <p id="day2day"> </p>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img id="day2icon" src="" />
+                                <p id="day2forecast"> </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p id="nextDayHiLow"> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <iframe id="lunch-menu" src="" width="475" height="410" align="left"></iframe>
+            </div>
+            <div class="col-md-4" "calendar">
+                <div align="center">
+                    <iframe id='calendar-frame' src='' allowTransparency=true scrolling='no' frameborder=0 height=410 width=450></iframe>
+                </div>
+            </div>
+            <div class="col-md-4" "shoppingList">
+                <!--define the shopping list app in ng-->
+                <div ng-app="myShoppingListApp">
+                    <!--refer controller for app -->
+                    <div ng-controller="firstController" class="content">
+                        <div class="form-group">
+                            <h2 id="shoplist">Shopping List</h2>
+                            <form ng-submit="addItem()">
+                                <input ng-submit="addItem()" type="text" id="textbox" ng-model="new_item" placeholder="Add Item">
+                                <button class="additems" ng-click="addItem()">Add Item</button>
+                            </form>
+                        </div>
+
+                        <div class="listbody">
+                            <div style="background-color:#cca300;padding:1px;">
+                                <div style="text-align:center;background-color:none;">
+                                    <!--add text box to search for item -->
+                                    <label>Search: <input ng-model="searchText"></label>
+                                </div>
+                                <!-- trash can for deleting all items-->
+                                <p class="fa fa-trash" id="trashcan" ng-click="deleteItem($index)"> Delete List</p>
+                                <hr>
+                                <ol>
+                                    <!-- ng way of looping through ol - repeat will loop through each item and display -->
+                                    <li ng-repeat="item in todo_lists | filter:searchText track by $index ">
+                                        <!--add strikethrough and auto cap word for each item in list-->
+                                        <span class="item" ng-class="{striken : item_striken$index}"> {{ item | capitalize }} </span> &nbsp;
+                                        <div class="right">
+                                            <!--show or hide strikethrough based on current condition (checked)-->
+                                            <i class="fa fa-check" ng-show="!item_striken$index" ng-click="item_striken$index = !item_striken$index"></i>
+                                            <i class="fa fa-times" ng-show="item_striken$index" ng-click="item_striken$index = !item_striken$index"></i> &nbsp;
+                                        </div>
+                                        <div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+                <script src="our_daily.js"></script>
+            </div>
+        </div>
+
+        <div class="row" "col-md-12"id="board">
+            <canvas id="myCanvas" width="1330px" height="235px"></canvas>
+            <!-- Make a button for drawing - change color to drawing color-->
+            <button id="draw-button" class="btn btn-success btn-sm" onclick="curColor('#806600')">Draw</button>
+            <!-- Make a button for erasing - change color to white for erase-->
+            <button id="erase-button" class="btn btn-warning btn-sm" onclick="curColor('#FFFFF0')">Erase</button>
+            <!-- Make a button for refreshing drawing board-->
+            <button id="refresh-button" class="btn btn-danger btn-sm" onclick="clearCanvas()">Clear All</button>
+
+        </div>
+        <!-- END board -->
+
+    </body>
+</div>
+
+</html>

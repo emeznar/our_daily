@@ -1,0 +1,172 @@
+.wholeDoc {
+    background-color: #FFFFF0;
+    margin: 0;
+}
+
+.topofPage {
+    background-color: #cca300;
+    color: white;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    font-family: Verdana;
+    font-size: 1.20em;
+    font-weight: bold;
+}
+
+.container {
+    text-align: center;
+    background-color: #cca300;
+    text-align: center;
+    color: #333300;
+    line-height: .85;
+    font-family: Verdana;
+    font-size: .85em;
+}
+
+#todaysforecast {
+    font-size: .70em;
+}
+#todayicon {
+    padding-bottom: 15px;
+}
+#todayHiLow {
+    padding-top: 35px;
+}
+
+#day1forecast {
+    font-size: .70em;
+}
+#day1icon {
+    padding-bottom: 15px;
+}
+#tomorrowHiLow {
+    padding-top: 35px;
+}
+
+#day2forecast {
+    font-size: .70em;
+}
+#day2icon {
+    padding-bottom: 15px;
+}
+#nextDayHiLow {
+    padding-top: 35px;
+}
+
+#conditions {
+    height: 125px;
+    border-radius: 20px;
+    border: 3px solid #333300;
+    padding: 5px 0px 10px 0px;
+}
+
+.dateTime {
+    text-align: center;
+}
+
+.weather {
+    text-align: center;
+}
+
+.conditions {
+    text-align: center;
+}
+
+.calendar {
+    margin: auto;
+}
+
+.shoppingList {
+    padding: 20px 20px 0px 10px;
+}
+
+#board {
+    text-align: center;
+}
+
+#refresh-datetime-button {
+    position: absolute;
+}
+
+#myCanvas {
+    margin: 0px 10px 0px 15px;
+    border: 5px solid #806600;
+}
+
+#draw-button {
+    float: right;
+    position: fixed;
+    margin-top: 5px;
+    width: 65px;
+}
+
+#erase-button {
+    float: right;
+    position: fixed;
+    margin-top: 55px;
+    width: 65px;
+}
+
+#refresh-button {
+    float: right;
+    position: fixed;
+    margin-top: 105px;
+    width: 65px;
+}
+
+
+/*#############Shopping List CSS ############## */
+
+input {
+    border: 1px solid #f2f2f2;
+    padding: 1px;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+li {
+    line-height: 15px;
+    font: 16px arial, sans-serif;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 1px;
+}
+
+#shoplist {
+    font: normal small-caps normal 16px/1.4 Georgia;
+    padding: 5px;
+}
+
+.listbody {
+    overflow: auto;
+    height: 340px;
+}
+
+.danger {
+    border: 2px solid red;
+}
+
+.right {
+    display: inline;
+    float: right;
+    margin-right: 10px;
+}
+
+.right i {
+    cursor: pointer;
+    color: #1A0DAB;
+}
+
+.striken {
+    text-decoration: line-through;
+    text-decoration-color: #b30000;
+    color: #ff3300;
+}
+
+.form-group {
+    text-align: center;
+}
+#trashcan {
+    color:#b30000;
+}
