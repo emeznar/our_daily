@@ -1,64 +1,62 @@
 window.onload = function() {
 
-    //get current time as page loads - before DCT is called
+    //get current time as page loads
     DisplayCurrentTime();
+
+    //get weather data on page load
+    getWeatherdata();
 
     //get drawing board on page load
     getDrawingBoard();
 
-    //Get current date
-    function DisplayCurrentTime() {
-        var date = new Date();
-        //make a list of days then assign the corresponding number to variable
-        var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
-            "Thursday", "Friday", "Saturday"
-        ];
-        var day = dayNames[date.getDay()];
 
-        //list months then assign corresponding number to variable
-        var monthNames = ["", "January", "February", "March", "April",
-            "May", "June", "July", "August", "September", "October", "November", "December"
-        ];
-        var month = monthNames[date.getMonth()];
-
-        //Get day of month as a number
-        var dayofmonth = date.getDate();
-        //Get time - hours - separate am/pm then minutes//add leading zeros
-        function addZeros(value) {
-            if (value < 10) {
-                return "0" + value;
-            } else {
-                return value;
-            }
-        }
-        var hours = addZeros(date.getHours()) > 12 ? date.getHours() - 12 : date.getHours();
-        var am_pm = date.getHours() >= 12 ? "PM" : "AM";
-        var minutes = addZeros(date.getMinutes());
-
-        //Add greeting
-        var greeting = '';
-        if (date.getHours() < 12) {
-            greeting = "Good morning, this is  ";
-        } else if (date.getHours() > 15) {
-            greeting = "Good evening, this is  ";
-        } else {
-            greeting = "Good afternoon, this is  ";
-        }
-        //assign all info obtained to variable and send to main page
-        var time = greeting + day + ", " + month + " " + dayofmonth + ".  The time is " +
-            hours.toString() + ":" + minutes + " " + am_pm;
-        //console.log(time);
-        document.querySelector("#displaydateTime").innerHTML = time;
-
-        //update time every 60 seconds from page load
-        var updateTimeOnPage;
-
-        function updateTime() {
-            updateTimeOnPage = setInterval(DisplayCurrentTime, 1000 * 60);
-        }
-        updateTime();
-    }
 };
+
+function DisplayCurrentTime() {
+    var date = new Date();
+    //make a list of days then assign variable by calling day integer of array
+    var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
+        "Thursday", "Friday", "Saturday"
+    ];
+    var day = dayNames[date.getDay()];
+
+    //list months then assign variable by calling month integer of array
+    var monthNames = ["January", "February", "March", "April",
+        "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    var month = monthNames[date.getMonth()];
+
+    //Get day of month as an integer
+    var dayofmonth = date.getDate();
+    //Get time - hours - separate am/pm then minutes//add leading zeros
+    function addZeros(value) {
+        if (value < 10) {
+            return "0" + value;
+        } else {
+            return value;
+        }
+    }
+    var hours = addZeros(date.getHours()) > 12 ? date.getHours() - 12 : date.getHours();
+    var am_pm = date.getHours() >= 12 ? "PM" : "AM";
+    var minutes = addZeros(date.getMinutes());
+
+    //Add greeting
+    var greeting = '';
+    if (date.getHours() < 12) {
+        greeting = "Good morning, on  ";
+    } else if (date.getHours() > 15) {
+        greeting = "Good evening, on  ";
+    } else {
+        greeting = "Good afternoon, on  ";
+    }
+
+    //assign all info obtained to variable and send to main page
+    var time = greeting + day + ", " + month + " " + dayofmonth + " at " +
+        hours.toString() + ":" + minutes + " " + am_pm;
+    //console.log(time);
+    document.querySelector("#displaydateTime").innerHTML = time;
+
+}
 //Query api for weather information on top of page
 function getWeatherdata() {
 
@@ -107,9 +105,10 @@ function getWeatherdata() {
             var day2Conditions = (response.daily.data[2].summary); //.substring(0,13);
             var day2Low = Math.round(response.daily.data[2].temperatureMin);
             var day2High = Math.round(response.daily.data[2].temperatureMax);
+
             //Send the rest of the info to page
             //Current conditions
-            $("#displaycurrent").text("Current weather conditions are " + currentWeather +
+            $("#displaycurrent").text("Weather conditions were " + currentWeather +
                 " and " + currentTemp + String.fromCharCode(176));
             //Todays forecast
             $("#todaysforecast").text(todaysConditions);
@@ -127,7 +126,6 @@ function getWeatherdata() {
         }
     });
 }
-getWeatherdata();
 
 function getWeatherIcon(x) {
     //if response/day/icon = defined text, assign image
@@ -173,6 +171,7 @@ function getCalendar() {
     document.getElementById('calendar-frame').src = calendarLink;
 }
 getCalendar();
+
 
 //create the shopping list module in angular
 var myShoppingListApp = angular.module('myShoppingListApp', []);
@@ -263,18 +262,3 @@ function clearCanvas() {
     myCanvas.width = myCanvas.width;
     getDrawingBoard();
 }
-
-//function to refresh calendar events
-function refreshCalendar() {
-    // refresh calendar
-    getCalendar();
-}
-
-//update elements on page at defined intervals
-var updateWeather; //update weather every hour
-var updatelunchMenu; //update menu every day
-function updatePage() {
-    updateWeather = setInterval(getWeatherdata, 1000 * 60 * 60);
-    updatelunchMenu = setInterval(getSchoolLunchMenu, 1000 * 60 * 60 * 24);
-}
-updatePage();

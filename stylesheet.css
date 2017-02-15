@@ -24,11 +24,11 @@
 }
 
 #todaysforecast {
-    font-size: .70em;
+    font-size: .67em;
 }
 
 #todayicon {
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 }
 
 #todayHiLow {
@@ -36,11 +36,11 @@
 }
 
 #day1forecast {
-    font-size: .70em;
+    font-size: .67em;
 }
 
 #day1icon {
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 }
 
 #tomorrowHiLow {
@@ -48,11 +48,11 @@
 }
 
 #day2forecast {
-    font-size: .70em;
+    font-size: .67em;
 }
 
 #day2icon {
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 }
 
 #nextDayHiLow {
@@ -78,6 +78,25 @@
     text-align: center;
 }
 
+.btn {
+    white-space: normal;
+    padding-top: 0px;
+}
+
+#refresh-time-weather {
+    word-wrap: break-word;
+    position: absolute;
+    float: left;
+    text-align: center;
+    margin-top: 1px;
+    width: 160px;
+    height: 40px;
+    background-color: #806600;
+    color: white;
+    border-radius: 20px;
+    border: 3px solid #806600;
+}
+
 .calendar {
     margin: auto;
 }
@@ -86,13 +105,13 @@
     position: absolute;
     float: right;
     text-align: center;
-    margin-top: 2px;
+    margin-top: 1px;
     width: 95px;
-    height: 38px;
-    background-color: #333300;
+    height: 40px;
+    background-color: #806600;
     color: white;
     border-radius: 20px;
-    border: 3px solid #333300;
+    border: 3px solid #806600;
 }
 
 .shoppingList {
@@ -135,10 +154,6 @@
 input {
     border: 1px solid #f2f2f2;
     padding: 1px;
-}
-
-@-ms-viewport {
-    width: device-width;
 }
 
 li {

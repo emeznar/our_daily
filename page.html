@@ -28,12 +28,14 @@
 
     <body class="wholeDoc">
         <div class="topofPage">
+            <button id="refresh-time-weather" class="btn btn-default btn-sm" onclick="DisplayCurrentTime();getWeatherdata();">Refresh Time/Weather</button>
             <div class="dateTime" "col-xs-12">
                 <p id="displaydateTime"></p>
             </div>
             <div class="weather">
                 <p id="displaycurrent" class="weatherLoc"> </p>
             </div>
+
             <!--container for weather information -->
             <div class="container" id="forecastContainer">
                 <div class="row">
@@ -78,16 +80,16 @@
 
         </div>
         <div class="row">
+
             <div class="col-md-4">
-                <iframe id="lunch-menu" src="" width="475" height="410" align="left"></iframe>
+                <iframe id="lunch-menu" src="" width="650" height="410" align="left"></iframe>
             </div>
             <div class="col-md-4" "calendar">
                 <!-- Make a button for refreshing calendar-->
-                <button id="refresh-calendar" class="btn btn-default btn-sm" onclick="refreshCalendar()">Refresh Events</button>
+                <button id="refresh-calendar" class="btn btn-default btn-sm" onclick="getSchoolLunchMenu();getCalendar();">Refresh Events</button>
                 <div align="center">
-
                     <!--draw calendar-->
-                    <iframe id='calendar-frame' src='' allowTransparency=true scrolling='no' frameborder=0 height=410 width=450></iframe>
+                    <iframe id='calendar-frame' src='' allowTransparency=true scrolling='no' frameborder=0 height=410 width=625></iframe>
                 </div>
             </div>
             <div class="col-md-4" "shoppingList">
@@ -136,17 +138,15 @@
         </div>
 
         <div class="row" "col-md-12"id="board">
-            <canvas id="myCanvas" width="1330px" height="235px"></canvas>
+            <canvas id="myCanvas" width="1730px" height="335px"></canvas>
             <!-- Make a button for drawing - change color to drawing color-->
             <button id="draw-button" class="btn btn-success btn-sm" onclick="curColor('#806600')">Draw</button>
             <!-- Make a button for erasing - change color to white for erase-->
             <button id="erase-button" class="btn btn-warning btn-sm" onclick="curColor('#FFFFF0')">Erase</button>
             <!-- Make a button for refreshing drawing board-->
             <button id="refresh-button" class="btn btn-danger btn-sm" onclick="clearCanvas()">Clear All</button>
-
         </div>
         <!-- END board -->
-
     </body>
 </div>
 
